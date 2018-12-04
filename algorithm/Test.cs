@@ -8,7 +8,7 @@ namespace algorithm
     {
         public static void Verify(int expected, int actual, string desc)
         {
-            Console.WriteLine($"{expected == actual} Exp: {expected}  Act: {actual} {desc}");
+            Console.WriteLine($"{expected == actual} \t Exp: {expected}  \t Act: {actual} \t {desc}");
         }
     }
 }

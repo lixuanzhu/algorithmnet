@@ -9,10 +9,16 @@ namespace algorithm
         public void Run()
         {
             int[] dupnums = {1, 2, 2, 5};
-            Test.Verify(1, DuplicateSearch(dupnums, 2), "dup");
-            Test.Verify(-1, DuplicateSearch(dupnums, 3), "dup");
-            Test.Verify(3, DuplicateSearch(dupnums, 5), "dup");
-            Test.Verify(-1, DuplicateSearch(new int[] { }, 5), "dup empty");
+            Test.Verify(0, DuplicateLeftSearch(dupnums, 1), "Ldup");
+            Test.Verify(1, DuplicateLeftSearch(dupnums, 2), "Ldup");
+            Test.Verify(-1, DuplicateLeftSearch(dupnums, 3), "Ldup");
+            Test.Verify(3, DuplicateLeftSearch(dupnums, 5), "Ldup");
+            Test.Verify(-1, DuplicateLeftSearch(new int[] { }, 5), "Ldup empty");
+            Test.Verify(0, DuplicateRightSearch(dupnums, 1), "Rdup");
+            Test.Verify(2, DuplicateRightSearch(dupnums, 2), "Rdup");
+            Test.Verify(-1, DuplicateRightSearch(dupnums, 3), "Rdup");
+            Test.Verify(3, DuplicateRightSearch(dupnums, 5), "Rdup");
+
             int[] nums = { 2, 3, 5 };
             for (int i = 0; i < nums.Length; i++)
             {
@@ -67,25 +73,44 @@ namespace algorithm
             return -1;
         }
 
-        private int DuplicateSearch(int[] nums, int target)
+        private int DuplicateLeftSearch(int[] nums, int target)
         {
             if (nums.Length == 0) return -1;
             int l = 0;
             int r = nums.Length - 1;
+            int res = -1;
             while (l <= r)
             {
                 int m = l + (r - l) / 2;
-                if(nums[m] >= target)
-                {
-                    r = m - 1;
-                }
+                if(nums[m] > target) r = m - 1;
                 else 
                 {
+                    if (nums[m] == target) res = m;
                     l = m + 1;
                 }
             }
-            if (nums[l] == target) return l;
-            return -1;
+            
+            return res;
+        }
+
+        private int DuplicateRightSearch(int[] nums, int target)
+        {
+            if (nums.Length == 0) return -1;
+            int l = 0;
+            int r = nums.Length - 1;
+            int res = -1;
+
+            while (l < r)
+            {
+                int m = l + (r - l) / 2;
+                if (nums[m] < target) l = m + 1;
+                else
+                {
+                    if (nums[m] == target) res = m;
+                    r = m - 1;
+                }
+            }
+            return res;
         }
     }
 }
