@@ -9,7 +9,7 @@ namespace algorithm
         public void Run()
         {
             ListNode head = ListNode.InitListNode(new int[] { 9, 8, 9 });
-            Console.WriteLine(isPalindrome(head));
+            Test.Verify(true, isPalindrome(head));
         }
         public bool isPalindrome(ListNode head)
         {
@@ -36,6 +36,8 @@ namespace algorithm
             while (pre != null && cur != null)
             {
                 if (pre.val != cur.val) return false;
+                pre = pre.next;
+                cur = cur.next;
             }
             return true;
 
