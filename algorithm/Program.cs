@@ -6,7 +6,7 @@ namespace algorithm
     {
         static void Main(string[] args)
         {
-            new BinarySearch().Run();
+            new LeetCode369_PlusOneLinkedList().Run();
         }
     }
 }
