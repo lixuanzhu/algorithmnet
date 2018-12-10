@@ -6,7 +6,7 @@ namespace algorithm
     {
         static void Main(string[] args)
         {
-            new LeetCode369_PlusOneLinkedList().Run();
+            new LC234_PalindromeLinkedList().Run();
         }
     }
 }

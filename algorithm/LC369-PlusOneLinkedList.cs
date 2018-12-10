@@ -4,7 +4,7 @@ using System.Text;
 
 namespace algorithm
 {
-    class LeetCode369_PlusOneLinkedList : IRun
+    class LC369_PlusOneLinkedList : IRun
     {
         public void Run()
         {
