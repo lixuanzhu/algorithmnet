@@ -6,7 +6,7 @@ namespace algorithm
     {
         static void Main(string[] args)
         {
-            new LC234_PalindromeLinkedList().Run();
+            new LC61_RotateList().Run();
         }
     }
 }

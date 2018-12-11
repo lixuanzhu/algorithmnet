@@ -107,7 +107,7 @@ namespace algorithm
                 else
                 {
                     if (nums[m] == target) res = m;
-                    r = m - 1;
+                    r = m;
                 }
             }
             return res;
