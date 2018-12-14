@@ -6,7 +6,7 @@ namespace algorithm
     {
         static void Main(string[] args)
         {
-            new LC61_RotateList().Run();
+            new LC298_BinaryTreeLongestConsecutiveSequence().Run();
         }
     }
 }
