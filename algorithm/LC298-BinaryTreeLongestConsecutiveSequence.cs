@@ -10,18 +10,14 @@ namespace algorithm
 
         public void Run()
         {
-            var root = new TreeNode(1);
-            TreeNode head = root;
+            TreeNode root = new TreeNode(1);
             root.left = new TreeNode(2);
             root.right = new TreeNode(4);
-            root = root.left;
-            root.right = new TreeNode(4);
-            root.left = new TreeNode(7);
-            root = root.right;
-            root.right = new TreeNode(5);
-            root = root.right;
-            root.left = new TreeNode(6);
-            Test.Verify(3, longestConsecutive(head));
+            root.left.right = new TreeNode(4);
+            root.left.left = new TreeNode(7);
+            root.left.right.right = new TreeNode(5);
+            root.left.right.right.left = new TreeNode(6);
+            Test.Verify(3, longestConsecutive(root));
         }
         public int longestConsecutive(TreeNode root)
         {
