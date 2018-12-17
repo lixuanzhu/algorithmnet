@@ -6,8 +6,6 @@ namespace algorithm
 {
     class LC298_BinaryTreeLongestConsecutiveSequence : IRun
     {
-        public int res = 0;
-
         public void Run()
         {
             TreeNode root = new TreeNode(5);
@@ -31,7 +29,6 @@ namespace algorithm
             count = root.val == pre + 1 ? count + 1 : 1;
             int max = Math.Max(longestConsecutive(root.left, root.val, count), longestConsecutive(root.right, root.val, count));
             return Math.Max(max, count);
-            
         }
     }
 }
