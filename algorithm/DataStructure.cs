@@ -62,32 +62,27 @@ namespace algorithm
             return sb.ToString();
         }
 
-        // Decodes your encoded data to tree.
         public static TreeNode deserialize(String data)
         {
             if (string.IsNullOrEmpty(data)) return null;
             String[] d = data.Split(" ");
-            int i = 0;
+
             Queue<TreeNode> q = new Queue<TreeNode>();
-            TreeNode root = new TreeNode(int.Parse(d[i]));
+            TreeNode root = new TreeNode(int.Parse(d[0]));
             q.Enqueue(root);
-            while (q.Count != 0)
+            for (int i = 1; i < d.Length; i++)
             {
                 TreeNode t = q.Dequeue();
-                i++;
-                if (i >= d.Length) break;
                 if (d[i] != "n")
                 {
-                    int v = int.Parse(d[i]);
-                    t.left = new TreeNode(v);
+                    t.left = new TreeNode(int.Parse(d[i]));
                     q.Enqueue(t.left);
                 }
                 i++;
                 if (i >= d.Length) break;
                 if (d[i] != "n")
                 {
-                    int v = int.Parse(d[i]);
-                    t.right = new TreeNode(v);
+                    t.right = new TreeNode(int.Parse(d[i]));
                     q.Enqueue(t.right);
                 }
             }
