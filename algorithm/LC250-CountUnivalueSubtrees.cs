@@ -8,16 +8,8 @@ namespace algorithm
     {
         public void Run()
         {
-            TreeNode root = new TreeNode(3);
-            root.left = new TreeNode(2);
-            root.right = new TreeNode(5);
-            root.right.right = new TreeNode(5);
-            root.left.left = new TreeNode(2);
-            root.left.right = new TreeNode(2);
-            root.left.left.left = new TreeNode(4);
-            root.left.left.right = new TreeNode(5);
-            root.left.right.left = new TreeNode(2);
-            root.left.right.right = new TreeNode(2);
+            string tree = "3 2 5 2 2 n 5 4 5 2 2";
+            TreeNode root = TreeNode.deserialize(tree);
 
             Test.Verify(7, countUnivalSubtrees(root));
         }

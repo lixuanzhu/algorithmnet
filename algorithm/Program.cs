@@ -6,7 +6,7 @@ namespace algorithm
     {
         static void Main(string[] args)
         {
-            new LC366_FindLeavesofBinaryTree().Run();
+            new LC250_CountUnivalueSubtrees().Run();
         }
     }
 }
