@@ -6,7 +6,7 @@ namespace algorithm
     {
         static void Main(string[] args)
         {
-            new LC250_CountUnivalueSubtrees().Run();
+            new SetMerge().Run();
         }
     }
 }
