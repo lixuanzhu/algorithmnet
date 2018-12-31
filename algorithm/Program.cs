@@ -6,7 +6,7 @@ namespace algorithm
     {
         static void Main(string[] args)
         {
-            new SetMerge().Run();
+            new LC243_Shortest_Word_Distance().Run();
         }
     }
 }
