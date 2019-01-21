@@ -8,8 +8,8 @@ namespace algorithm
     {
         public void Run()
         {
-            string[] words = { "d", "a",  "c", "c","b", "a" };
-            Test.Verify(1, SWD(words, "a", "c")); 
+            string[] words = { "d", "a",  "c", "e", "c","b", "a" };
+            Test.Verify(1, SWD(words, "c", "c")); 
         }
         public int SWD (string[] words, string word1, string word2)
         {

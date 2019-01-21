@@ -15,5 +15,14 @@ namespace algorithm
         {
             Console.WriteLine($"{expected == actual} \t Exp: {expected}  \t Act: {actual} \t {desc}");
         }
+
+        public static void PrintArray(int[] nums)
+        {
+            foreach (int n in nums)
+            {
+                Console.Write(n + "\t");
+            }
+            Console.WriteLine();
+        }
     }
 }

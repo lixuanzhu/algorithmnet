@@ -6,7 +6,7 @@ namespace algorithm
     {
         static void Main(string[] args)
         {
-            new LC243_Shortest_Word_Distance().Run();
+            new Sort().Run();
         }
     }
 }
