@@ -2,42 +2,42 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace algorithm
+namespace Algorithm
 {
     class LC234_PalindromeLinkedList
     {
         public void Run()
         {
-            ListNode head = ListNode.InitListNode(new int[] { 9, 8, 9 });
-            Test.Verify(true, isPalindrome(head));
+            ListNode<int> head = new ListNode<int>(new int[] { 9, 8, 9 });
+            Test.Verify(true, IsPalindrome(head.PrintListNode()));
         }
-        public bool isPalindrome(ListNode head)
+        public bool IsPalindrome(ListNode<int> head)
         {
             if (head == null) return true;
             int len = 0;
-            ListNode cur = head;
+            ListNode<int> cur = head;
             while (cur != null)
             {
                 len++;
-                cur = cur.next;
+                cur = cur.Next;
             }
             int half = len / 2;
             cur = head;
 
-            ListNode pre = null;
+            ListNode<int> pre = null;
             while (half-- > 0)
             {
-                ListNode temp = cur.next;
-                cur.next = pre;
+                ListNode<int> temp = cur.Next;
+                cur.Next = pre;
                 pre = cur;
                 cur = temp;
             }
-            if (len % 2 == 1) cur = cur.next;
+            if (len % 2 == 1) cur = cur.Next;
             while (pre != null && cur != null)
             {
-                if (pre.val != cur.val) return false;
-                pre = pre.next;
-                cur = cur.next;
+                if (pre.Val != cur.Val) return false;
+                pre = pre.Next;
+                cur = cur.Next;
             }
             return true;
 

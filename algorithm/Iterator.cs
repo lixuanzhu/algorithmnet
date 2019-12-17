@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace algorithm
+namespace Algorithm
 {
     class Iterator : IRun
     {
@@ -31,7 +31,7 @@ namespace algorithm
 
             public int Next()
             {
-                if (!HasNext()) throw new Exception("no next");
+                if (!HasNext()) throw new Exception("no Next");
                 cur++;
                 return collection[cur];
             }
@@ -82,7 +82,7 @@ namespace algorithm
                         count--;
                         return val;
                     }
-                    throw new Exception("no repeat next");
+                    throw new Exception("no repeat Next");
                 }
             }
         }

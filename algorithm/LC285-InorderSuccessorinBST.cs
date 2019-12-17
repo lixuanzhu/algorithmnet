@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace algorithm
+namespace Algorithm
 {
     class LC285_InorderSuccessorinBST : IRun
     {

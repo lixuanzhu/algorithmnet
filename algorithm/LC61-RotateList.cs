@@ -2,34 +2,35 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace algorithm
+namespace Algorithm
 {
     class LC61_RotateList
     {
         public void Run()
         {
-            ListNode head = ListNode.InitListNode(new int[] { 1, 2, 3});
-            ListNode.DispListNode(rotateRight(head, 3));
+            ListNode<int> head = new ListNode<int>(new int[] { 1, 2, 3,4,5,6});
+            ListNode<int>.PrintListNode(head);
+            RotateRight(head.PrintListNode(), 3).PrintListNode();
         }
-        public ListNode rotateRight(ListNode head, int k)
+        public ListNode<int> RotateRight(ListNode<int> head, int k)
         {
-            if (head == null || head.next == null || k == 0) return head;
+            if (head == null || head.Next == null || k == 0) return head;
             int len = 1;
-            ListNode cur = head;
-            while (cur.next != null)
+            ListNode<int> cur = head;
+            while (cur.Next != null)
             {
                 len++;
-                cur = cur.next;
+                cur = cur.Next;
             }
-            cur.next = head;
+            cur.Next = head;
 
             int move = len - k % len - 1;
             while (move-- > 0)
             {
-                head = head.next;
+                head = head.Next;
             }
-            cur = head.next;
-            head.next = null;
+            cur = head.Next;
+            head.Next = null;
 
             return cur;
         }

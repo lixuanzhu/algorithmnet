@@ -2,40 +2,42 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace algorithm
+namespace Algorithm
 {
     class LC369_PlusOneLinkedList : IRun
     {
         public void Run()
         {
-            ListNode head = ListNode.InitListNode(new int[] { 9,8,9 });
-            ListNode.DispListNode(PlusOne(head));
+            ListNode<int> head = new ListNode<int>(new int[] { 9,9,9 });
+            PlusOne(head).PrintListNode();
         }
 
-        public ListNode PlusOne(ListNode head)
+        public ListNode<int> PlusOne(ListNode<int> head)
         {
-            ListNode d = new ListNode(0);
-            d.next = head;
-            ListNode cur = d;
-            ListNode next = d;
+            ListNode<int> dummy = new ListNode<int>(0)
+            {
+                Next = head
+            };
+            ListNode<int> cur = dummy;
+            ListNode<int> next = dummy;
             while(next != null)
             {
-                if(next.val != 9)
+                if(next.Val != 9)
                 {
                     cur = next;
                 }
-                next = next.next;
+                next = next.Next;
             }
             next = cur;
-            next.val = next.val + 1;
-            next = next.next;
+            next.Val += 1;
+            next = next.Next;
             while(next != null)
             {
-                next.val = 0;
-                next = next.next;
+                next.Val = 0;
+                next = next.Next;
             }
 
-            return d == cur ? d : d.next;
+            return dummy == cur ? dummy : dummy.Next;
         }
     }
 }

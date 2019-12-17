@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace algorithm
+namespace Algorithm
 {
     class Sort :IRun
     {

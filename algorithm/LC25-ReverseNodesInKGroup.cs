@@ -2,30 +2,30 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace algorithm
+namespace Algorithm
 {
     class LC25_ReverseNodesInKGroup
     {
         public void Run()
         {
-            ListNode head = ListNode.InitListNode(new int[] { 1,2,3,4,5 });
-            ListNode.DispListNode(reverseKGroup(head, 2));
+            ListNode<int> head = new ListNode<int>(new int[] { 1,2,3,4,5,6, 7,8 });
+            ReverseKGroup(head.PrintListNode(), 3).PrintListNode();
         }
 
-        public ListNode reverseKGroup(ListNode head, int k)
+        public ListNode<int> ReverseKGroup(ListNode<int> head, int k)
         {
-            if (head == null || head.next == null) return head;
+            if (head == null || head.Next == null) return head;
             int len = 0;
-            ListNode m = head;
+            ListNode<int> m = head;
             while (m != null)
             {
                 len++;
-                m = m.next;
+                m = m.Next;
             }
             int n = len / k;
-            ListNode d = new ListNode(0);
-            d.next = head;
-            ListNode cur, pre, first, second;
+            ListNode<int> d = new ListNode<int>(0);
+            d.Next = head;
+            ListNode<int> cur, pre, first, second;
             cur = head;
             first = d;
             second = head;
@@ -35,18 +35,18 @@ namespace algorithm
                 int t = k;
                 while (t-- > 0)
                 {
-                    ListNode temp = cur.next;
-                    cur.next = pre;
+                    ListNode<int> temp = cur.Next;
+                    cur.Next = pre;
                     pre = cur;
                     cur = temp;
                 }
-                first.next = pre;
-                second.next = cur;
+                first.Next = pre;
+                second.Next = cur;
                 first = second;
                 second = cur;
 
             }
-            return d.next;
+            return d.Next;
         }
     }
 }

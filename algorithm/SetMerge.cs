@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace algorithm
+namespace Algorithm
 {
     class SetMerge : IRun
     {
@@ -37,15 +37,15 @@ namespace algorithm
             if (size == 0) return;
             
             HashSet<int> last = sets[size - 1];
-            int next = size - 2;
-            while(next >= 0)
+            int Next = size - 2;
+            while(Next >= 0)
             {
-                if(CanMerge(last, sets[next]))
+                if(CanMerge(last, sets[Next]))
                 {
-                    Merge(last, sets[next]);
-                    sets.RemoveAt(next);
+                    Merge(last, sets[Next]);
+                    sets.RemoveAt(Next);
                 }
-                next--;
+                Next--;
             }
 
             if(sets.Count == size)
