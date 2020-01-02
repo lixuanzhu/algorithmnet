@@ -9,7 +9,7 @@ namespace Algorithm
         public void Run()
         {
             string tree = "1 2 3 4 5 n 6 n n n n 7 n n n ";
-            TreeNode root = TreeNode.deserialize(tree);
+            TreeNode root = TreeNode.Deserialize(tree);
 
             var res = findLeaves(root);
             foreach(var list in res)
@@ -33,11 +33,11 @@ namespace Algorithm
         public int dsf(TreeNode root, IList<IList<int>> res)
         {
             if (root == null) return -1;
-            int left = dsf(root.left, res);
-            int right = dsf(root.right, res);
-            int d = Math.Max(left, right) + 1;
+            int Left = dsf(root.Left, res);
+            int Right = dsf(root.Right, res);
+            int d = Math.Max(Left, Right) + 1;
             if (res.Count <= d) res.Add(new List<int>());
-            res[d].Add(root.val);
+            res[d].Add(root.Val);
             return d;
         }
     }

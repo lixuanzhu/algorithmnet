@@ -9,7 +9,7 @@ namespace Algorithm
         public void Run()
         {
             string tree = "3 2 5 2 2 n 5 4 5 2 2";
-            TreeNode root = TreeNode.deserialize(tree);
+            TreeNode root = TreeNode.Deserialize(tree);
 
             Test.Verify(7, countUnivalSubtrees(root));
         }
@@ -18,18 +18,18 @@ namespace Algorithm
         public int countUnivalSubtrees(TreeNode root)
         {
             if (root == null) return 0;
-            dsf(root);
+            Dsf(root);
             return count;
         }
 
-        public bool dsf (TreeNode root)
+        public bool Dsf (TreeNode root)
         {
             if (root == null) return true;
-            bool left = dsf(root.left);
-            bool right = dsf(root.right);
-            if (!left || !right) return false;
-            if (root.left != null && root.val != root.left.val) return false;
-            if (root.right != null && root.val != root.right.val) return false;
+            bool Left = Dsf(root.Left);
+            bool Right = Dsf(root.Right);
+            if (!Left || !Right) return false;
+            if (root.Left != null && root.Val != root.Left.Val) return false;
+            if (root.Right != null && root.Val != root.Right.Val) return false;
             count++;
             return true;
         }

@@ -9,33 +9,33 @@ namespace Algorithm
         public void Run()
         {
             string tree = "5 3 7 2 4 6 8";
-            TreeNode root = TreeNode.deserialize(tree);
+            TreeNode root = TreeNode.Deserialize(tree);
             TreeNode res = inorderSuccessor(root, 8);
-            Console.WriteLine(res.val);
+            Console.WriteLine(res.Val);
         }
 
         public TreeNode inorderSuccessor(TreeNode root, int p)
         {
             if (root == null) return null;
             TreeNode parent = null;
-            while(root.val != p && root != null)
+            while(root.Val != p && root != null)
             {
-                if(p < root.val)
+                if(p < root.Val)
                 {
                     parent = root;
-                    root = root.left;
+                    root = root.Left;
                 }
                 else
                 {
-                    root = root.right;
+                    root = root.Right;
                 }
             }
             if (root == null) return null;
-            if (root.right == null) return parent;
-            root = root.right;
-            while(root.left != null)
+            if (root.Right == null) return parent;
+            root = root.Right;
+            while(root.Left != null)
             {
-                root = root.left;
+                root = root.Left;
             }
             return root;
         }

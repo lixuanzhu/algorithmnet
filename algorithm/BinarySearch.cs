@@ -40,34 +40,34 @@ namespace Algorithm
             return RecursiveSearch(nums, target, 0, nums.Length -1);
         }
 
-        private int RecursiveSearch ( int[] nums, int target, int left, int right)
+        private int RecursiveSearch ( int[] nums, int target, int Left, int Right)
         {
-            if (left > right)
+            if (Left > Right)
                 return -1;
-            int middle = left + (right - left) / 2;
+            int middle = Left + (Right - Left) / 2;
             if (nums[middle] == target)
                 return middle;
             if (nums[middle] > target)
-                return RecursiveSearch(nums, target, left, middle - 1);
-            return RecursiveSearch(nums, target, middle + 1, right);
+                return RecursiveSearch(nums, target, Left, middle - 1);
+            return RecursiveSearch(nums, target, middle + 1, Right);
         }
 
         private int IterativeSearch(int[] nums, int target)
         {
-            int left = 0;
-            int right = nums.Length - 1;
-            while( left <= right)
+            int Left = 0;
+            int Right = nums.Length - 1;
+            while( Left <= Right)
             {
-                int middle = left + (right - left) / 2;
+                int middle = Left + (Right - Left) / 2;
                 if (nums[middle] == target)
                     return middle;
                 if(nums[middle] > target)
                 {
-                    right = middle - 1;
+                    Right = middle - 1;
                 }
                 else
                 {
-                    left = middle + 1;
+                    Left = middle + 1;
                 }
             }
             return -1;

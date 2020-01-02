@@ -84,25 +84,25 @@ namespace Algorithm
             int n = nums.Length;
             if (n < 2) return;
             int m = n / 2;
-            int[] left = new int[m];
-            int[] right = new int[n - m];
-            for(int i = 0; i < m; i++) left[i] = nums[i];
-            for(int i = 0; i < n -m; i++) right[i] = nums[i + m];
-            MergeSort(left);
-            MergeSort(right);
-            Merge(left, right, nums);
+            int[] Left = new int[m];
+            int[] Right = new int[n - m];
+            for(int i = 0; i < m; i++) Left[i] = nums[i];
+            for(int i = 0; i < n -m; i++) Right[i] = nums[i + m];
+            MergeSort(Left);
+            MergeSort(Right);
+            Merge(Left, Right, nums);
         }
 
-        private void Merge(int[] left, int[] right, int[] nums)
+        private void Merge(int[] Left, int[] Right, int[] nums)
         {
             int l = 0, r = 0, n = 0;
-            while(l < left.Length && r < right.Length)
+            while(l < Left.Length && r < Right.Length)
             {
-                if(left[l] <= right[r]) nums[n++] = left[l++];
-                else nums[n++] = right[r++];
+                if(Left[l] <= Right[r]) nums[n++] = Left[l++];
+                else nums[n++] = Right[r++];
             }
-            while(l < left.Length) nums[n++] = left[l++];
-            while (r < right.Length) nums[n++] = right[r++];
+            while(l < Left.Length) nums[n++] = Left[l++];
+            while (r < Right.Length) nums[n++] = Right[r++];
         }
 
         private void QuickSort(int[] nums)
